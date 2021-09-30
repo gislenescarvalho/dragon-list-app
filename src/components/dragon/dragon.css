@@ -1,0 +1,45 @@
+.dragon {
+    width: 250px;
+    height: 100%;
+    border: solid 1px #c441b7;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.dragon h2 {
+    word-wrap: break-word;
+}
+
+.first-row-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.details-id,
+.details-created-date {
+    font-size: 9px;
+}
+
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: #c441b7;
+}
+
+.actions span:hover {
+    color: white
+}
+
+input {
+    margin: 0 10px;
+}
+
+.error-message {
+    color: #ff0000;
+    font-weight: bold;
+}

@@ -1,0 +1,24 @@
+.new-dragon {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 100%;
+    border: solid 1px #c441b7;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.save-button {
+    color: #c441b7;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    color: #fff;
+}
+
+.error-message {
+    color: #ff0000;
+    font-weight: bold;
+}

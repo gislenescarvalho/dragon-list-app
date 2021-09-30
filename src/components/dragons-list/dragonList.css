@@ -1,0 +1,46 @@
+.dragon-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.actions-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.actions-list svg {
+  color: #c441b7;
+}
+
+.actions-list:hover {
+  color: #c441b7
+}
+
+.dragon {
+  display: flex;
+
+  flex-grow: 1;
+}
+
+.dragon svg {
+  color: #c441b7
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  flex-grow: 2;
+}
+
+span {
+  cursor: pointer;
+
+}
+li:hover {
+  color: #c441b7;
+  cursor: pointer;
+}

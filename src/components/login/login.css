@@ -1,0 +1,45 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input, button {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #f542e3;
+    border-radius: 25px;
+}
+
+.login input {
+    background: #282c34;
+    color: #fff;
+    text-align: center;
+}
+
+.login button {
+    background: #c441b7;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login button:hover {
+    background: #fff;
+    color: #c441b7;
+}
+
+.logo {
+    color: #c441b7;
+    margin-bottom: 20px; 
+}
+
+.sign-buttons { 
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.error-message {
+    color: #ff0000;
+    font-weight: bold;
+}

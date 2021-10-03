@@ -14,7 +14,7 @@ const getDragonDetail = dragonId =>
     url: `${MOCK_API_URL}/${dragonId}`
   });
 
-const createDragon = dragon =>
+const addDragon = dragon =>
   axios({
     method: "POST",
     url: `${MOCK_API_URL}/`,
@@ -36,7 +36,7 @@ const deleteDragonById = dragonId =>
 export default {
   getDragons,
   getDragonDetail, 
-  createDragon,
+  addDragon,
   editDragon,
   deleteDragonById
 };

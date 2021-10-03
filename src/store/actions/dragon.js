@@ -2,6 +2,34 @@ import * as actionTypes from './actionTypes';
 import * as actions from './index';
 import { DragonAPI } from '../../services/api';
 
+export const addDragonSuccess = success => {
+    return {
+        type: actionTypes.ADD_DRAGON_SUCCESS,
+        wasAdded: success
+    }
+}
+
+export const addDragonFail = error => {
+    return {
+        type: actionTypes.ADD_DRAGON_FAIL,
+        error: error
+    }
+}
+
+export const addDragon = (newDragon) => {
+    return dispatch => {
+        DragonAPI.addDragon(newDragon)
+            .then(() => {
+                dispatch(addDragonSuccess(true));
+                dispatch(actions.getDragonsList());
+            })
+            .catch(() => {
+                dispatch(addDragonFail("An unexpected error occurred - it's not possible to add a new item!"));
+            })
+
+    }
+}
+
 export const saveDragonSuccess = success => {
     return {
         type: actionTypes.SAVE_DRAGON_SUCCESS,
@@ -66,32 +94,6 @@ export const deleteDragon = dragonId => {
     }
 }
 
-export const createDragonSuccess = success => {
-    return {
-        type: actionTypes.CREATE_DRAGON_SUCCESS,
-        wasCreated: success
-    }
-}
 
-export const createDragonFail = error => {
-    return {
-        type: actionTypes.CREATE_DRAGON_FAIL,
-        error: error
-    }
-}
-
-export const createDragon = (newDragon) => {
-    return dispatch => {
-        DragonAPI.createDragon(newDragon)
-            .then(() => {
-                dispatch(createDragonSuccess(true));
-                dispatch(actions.getDragonsList());
-            })
-            .catch(() => {
-                dispatch(createDragonFail("An unexpected error occurred - it's not possible to create a new item!"));
-            })
-
-    }
-}
 
 

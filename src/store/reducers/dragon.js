@@ -4,15 +4,23 @@ import { updateObject } from "../../utils/utils";
 const initialState = {
   error: null,
   successMessage: null,
-  wasCreated: false
+  wasAdded: false
 };
 
+const addDragonFail = (state, action) => {
+  return updateObject(state, { error: action.error, wasAdded: false });
+};
+
+const addDragonSuccess = (state,action) => {
+  return updateObject(state, {wasAdded: action.wasAdded})
+}
+
 const saveDragonSuccess = (state, action) => {
-  return updateObject(state, { successMessage: action.successMessage, wasCreated: true });
+  return updateObject(state, { successMessage: action.successMessage, wasAdded: true });
 };
 
 const saveDragonFail = (state, action) => {
-  return updateObject(state, { error: action.error, wasCreated: false });
+  return updateObject(state, { error: action.error, wasAdded: false });
 };
 
 const deleteDragonSuccess = (state, action) => {
@@ -26,15 +34,13 @@ const deleteDragonFail = (state, action) => {
   return updateObject(state, { error: action.error });
 };
 
-const createDragonFail = (state, action) => {
-    return updateObject(state, { error: action.error, wasCreated: false });
-};
 
-const createDragonSuccess = (state,action) => {
-    return updateObject(state, {wasCreated: action.wasCreated})
-}
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.ADD_DRAGON_SUCCESS:
+      return addDragonSuccess(state, action);
+    case actionTypes.ADD_DRAGON_FAIL:
+      return addDragonFail(state, action);
     case actionTypes.SAVE_DRAGON_SUCCESS:
       return saveDragonSuccess(state, action);
     case actionTypes.SAVE_DRAGON_FAIL:
@@ -45,10 +51,6 @@ const reducer = (state = initialState, action) => {
       return deleteDragonSuccess(state, action);
     case actionTypes.DELETE_DRAGON_FAIL:
       return deleteDragonFail(state, action);
-    case actionTypes.CREATE_DRAGON_SUCCESS:
-      return createDragonSuccess(state, action);
-    case actionTypes.CREATE_DRAGON_FAIL:
-      return createDragonFail(state, action);
     default:
       return state;
   }

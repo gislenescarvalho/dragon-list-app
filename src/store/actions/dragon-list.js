@@ -19,7 +19,7 @@ export const getDragonsListFail = (error) => {
 
 export const sortDragonsList = (list) => {
     return {
-        type: actionTypes.SORT_DRAGON_LIST,
+        type: actionTypes.SORT_LIST_DRAGONS,
         sortedDragonsList: sortList(list),
         wasUpdated: false
     }

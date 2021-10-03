@@ -26,7 +26,7 @@ const Dragon = props => {
 
 
   const formatDate = date => {
-    return new Date(date).toDateString();
+    return new Date(date).toLocaleString('pt-BR');
   };
 
   const changeHandler = (event) => {
@@ -47,9 +47,11 @@ const Dragon = props => {
     props.deleteDragon(dragonDetails.id);
     setWasDeleted(true);
   }
+  
   const editDragonHandler = () => {
     setIsEdit(!isEdit);
   };
+
   const editMode = () => {
     return (
       <>
@@ -79,12 +81,13 @@ const Dragon = props => {
 
   const setDisplayMode = () => {
 
-    switch (isEdit) {
+    /*switch (isEdit) {
       case true:
         return editMode();
       case false:
         return infoMode();
-    }
+    }*/
+    return isEdit ? editMode() : infoMode();
   };
 
 

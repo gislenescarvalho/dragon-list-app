@@ -19,11 +19,8 @@ const DragonsList = props => {
     setIsAddingNew(!isAddingNew);
   }
 
-
-
-  let list = <Loading />;
-  if (!props.loading) {
-    list = props.dragonsList.forEach(dragon => (
+  const getDragonList = props => {
+    return  props.dragonsList.forEach(dragon => (
       <div key={dragon.id} className="dragon">
         <FaDragon />
         <li onClick={() => onClickDragonHandler(dragon)}>
@@ -31,6 +28,12 @@ const DragonsList = props => {
         </li>
       </div>
     ));
+  }
+
+
+  let list = <Loading />;
+  if (!props.loading) {
+    list = getDragonList(props);
   }
 
   return (
@@ -63,7 +66,7 @@ const mapStateToProps = state => {
   return {
     dragonsList: state.dragonList.dragons,
     loading: state.dragonList.loading,
-    wasCreated: state.dragon.wasCreated,
+    wasAdded: state.dragon.wasAdded,
     wasUpdate: state.dragonList.wasUpdate,
     error: state.dragonList.error
   };

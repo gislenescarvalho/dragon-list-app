@@ -3,7 +3,7 @@
     height: 100%;
     border: solid 1px #013A20;
     border-radius: 25px;
-    padding: 10px;
+    padding: 5px;
     margin: 10px;
 }
 
@@ -20,6 +20,11 @@
 
 .details-id {
     font-size: 9px;
+}
+
+.details-createdDate {
+    font-size: 11px;
+    font-weight: bold;
 }
 
 

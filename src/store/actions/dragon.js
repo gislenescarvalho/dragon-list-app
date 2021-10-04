@@ -46,7 +46,7 @@ export const saveDragonFail = error => {
 
 export const saveDragon = (dragonDetails) => {
     return dispatch => {
-          DragonAPI.editDragon(dragonDetails.id)
+          DragonAPI.editDragon(dragonDetails)
             .then(response =>{         
                 dispatch(saveDragonSuccess(response));
                 dispatch(actions.getDragonsList());

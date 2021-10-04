@@ -56,7 +56,7 @@ const Dragon = props => {
     return (
       <>
       <div>
-        <input
+        <Input
           type="text"
           id="name"
           value={dragonDetails.name}
@@ -64,7 +64,7 @@ const Dragon = props => {
         />
       </div>
       <div>
-        <input
+        <Input
           type="text"
           id="type"
           value={dragonDetails.type}
@@ -79,8 +79,6 @@ const Dragon = props => {
       <>
       <div>
         <h2>{dragonDetails.name}</h2>
-      </div>
-      <div>
         <h3>{dragonDetails.type}</h3>
       </div>
     </>
@@ -88,22 +86,17 @@ const Dragon = props => {
   };
 
   const setDisplayMode = () => {
-    switch (isEdit) {
-      case true:
-        return editMode();
-      case false:
-        return infoMode();
-    }
+    return isEdit ? editMode() : infoMode();
   };
 
 
   let display = (
     <div className="dragon-details">
+      {setDisplayMode()}
     <div className="first-row-info">
-      <span className="details-id">{dragonDetails.id}</span>
-      <span>{formatDate(dragonDetails.createdAt)}</span>
+      <span className="details-id">Id: {dragonDetails.id}</span>
+      <span className="details-createdDate">Created at: {formatDate(dragonDetails.createdAt)}</span>
     </div>
-    {setDisplayMode()}
   </div>
   )
   
@@ -121,10 +114,10 @@ const Dragon = props => {
           <FaEdit size={32} />
         </span>
         { isEdit && <span onClick={saveDragonHandler}>
-          <FaSave size={32} />  
+          <FaSave size={24} />  
         </span>}
         {!isEdit && <span onClick={deleteDragonHandler}>
-          <FaTrashAlt size={32} />          
+          <FaTrashAlt size={24} />          
         </span>}
       </div>
       <div>

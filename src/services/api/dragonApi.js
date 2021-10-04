@@ -18,13 +18,14 @@ const addDragon = dragon =>
   axios({
     method: "POST",
     url: `${MOCK_API_URL}/`,
-    dragon
+    data: dragon
   });
 
-const editDragon = dragonId =>
+const editDragon = dragon =>
     axios({
     method: "PUT",
-    url: `${MOCK_API_URL}/${dragonId}`
+    url: `${MOCK_API_URL}/${dragon.id}`,
+    data: dragon
   });
 
 const deleteDragonById = dragonId =>

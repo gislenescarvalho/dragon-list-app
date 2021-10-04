@@ -26,8 +26,8 @@ const App = props => {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">{getRoutes()}</header>
+    <div className="app">
+      <header className="app-header">{getRoutes()}</header>
     </div>
   );
 };

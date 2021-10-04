@@ -1,13 +1,13 @@
-.dragon {
+.dragon-details {
     width: 250px;
     height: 100%;
-    border: solid 1px #c441b7;
+    border: solid 1px #013A20;
     border-radius: 25px;
     padding: 10px;
     margin: 10px;
 }
 
-.dragon h2 {
+.dragon-details h2 {
     word-wrap: break-word;
 }
 
@@ -18,8 +18,7 @@
     justify-content: space-around;
 }
 
-.details-id,
-.details-created-date {
+.details-id {
     font-size: 9px;
 }
 
@@ -28,7 +27,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    color: #c441b7;
+    color: #013A20;
 }
 
 .actions span:hover {

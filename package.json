@@ -7,8 +7,6 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.4",
-    "prettier": "^2.4.1",
-    "pretty-quick": "^3.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
@@ -23,10 +21,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "format": "prettier --ignore-path .gitignore --write '**/*.js'",
-    "lint": "eslint --ext .js src/",
-    "precommit": "pretty-quick --staged"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

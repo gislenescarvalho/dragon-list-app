@@ -5,10 +5,10 @@ import * as actions from "../../store/actions/";
 import "./new-dragon.css";
 import { FaSave } from "react-icons/fa";
 
-import Input from './input';
+import Input from '../input/input';
 
 const NewDragon = props => {
-  const [newDragon, setNewDragon] = useState({
+  const [addDragon, setNewDragon] = useState({
     name:'',
     type: '',
     createdAt: new Date().toString(),
@@ -16,26 +16,25 @@ const NewDragon = props => {
   });
 
   const submitHandler = event => {
-    if(newDragon.name.length && newDragon.type.length )
+    if(addDragon.name.length > 0 && addDragon.type.length > 0  )
     {
       const creationDate = new Date().toString();
       const histories = [];
-      const newDragonUpdate = updateObject(newDragon, {createdAt: creationDate, histories: histories})
-      setNewDragon({...newDragonUpdate});
-      props.createDragon(newDragon)
+      const addDragonUpdate = updateObject(addDragon, {createdAt: creationDate, histories: histories})
+      setNewDragon({...addDragonUpdate});
+      props.addDragon(addDragon)
     }
     event.preventDefault();
   }
 
   const changeHandler = event => {
     const { id, value } = event.target;
-    setNewDragon({ ...newDragon, [id]: value });
+    setNewDragon({ ...addDragon, [id]: value });
   };
 
   return (
     <div className="new-dragon" >
   
-        <div>
           <label>Name:</label>
           <Input
            type="text" 
@@ -43,18 +42,15 @@ const NewDragon = props => {
           placeholder="Name" 
           onChange={changeHandler}
           />
-        </div>
-        <div>
           <label>Type:</label>
           <Input type="text" 
           id="type" 
           placeholder="Type" 
           onChange={changeHandler}
           />
-        </div>
   
         <span className="save-button" onClick={submitHandler}>
-          <FaSave size="2x" />
+          <FaSave size={54} />
         </span>
         <div>
           {props.error && <p className="error-message">{props.error}</p>} 
@@ -72,7 +68,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createDragon: (newDragon) => dispatch(actions.createDragon(newDragon))
+    addDragon: (addDragon) => dispatch(actions.addDragon(addDragon))
   }
 }
 

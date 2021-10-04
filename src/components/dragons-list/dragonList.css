@@ -10,21 +10,26 @@
 }
 
 .actions-list svg {
-  color: #c441b7;
+  color: #013A20;
 }
 
 .actions-list:hover {
-  color: #c441b7
+  color: #013A20;
+}
+
+.actions-list span {
+  font-size: 21px;
+  padding-left: 8px;
+  margin-bottom: -10px;
 }
 
 .dragon {
   display: flex;
-
   flex-grow: 1;
 }
 
 .dragon svg {
-  color: #c441b7
+  color: #013A20;
 }
 
 ul {
@@ -40,7 +45,8 @@ span {
   cursor: pointer;
 
 }
+
 li:hover {
-  color: #c441b7;
+  color: #bdbdbd;
   cursor: pointer;
 }

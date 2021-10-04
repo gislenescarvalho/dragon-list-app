@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/";
 import { FaDragon } from "react-icons/fa";
-import Input from './input';
+import Input from '../input/input';
 import "./login.css";
 
 
@@ -34,14 +34,14 @@ const Login = props => {
     setIsSignUp(true);
   }
 
-  renderAllButtons = () => {
+  const renderAllButtons = () => {
     return <div className="sign-buttons">
             <button type="submit">Sign in</button>
             <button type="button" onClick={signUpHandler}>Sign up</button>
           </div>
   }
 
-  renderSignUpButton = () => {
+  const renderSignUpButton = () => {
     return <div className="sign-buttons">
             <button type="submit">Sign up</button>
           </div>
@@ -55,7 +55,7 @@ const Login = props => {
   return (
     <div>
       <span className="logo">
-      <FaDragon  size="7x" />
+      <FaDragon size={96} />
       </span>
       <form onSubmit={submitHandler} className="login">
         <Input

@@ -20,34 +20,30 @@ const DragonsList = props => {
   }
 
   const getDragonList = props => {
-    return  props.dragonsList.forEach(dragon => (
+    const { loading } = props;
+    return loading ? <Loading /> :
+      props.dragonsList.map(dragon => (
       <div key={dragon.id} className="dragon">
         <FaDragon />
-        <li onClick={() => onClickDragonHandler(dragon)}>
+        <li onClick={onClickDragonHandler.bind(this, dragon)}>
           {dragon.name}
         </li>
-      </div>
-    ));
+      </div>));
   }
 
-
-  let list = <Loading />;
-  if (!props.loading) {
-    list = getDragonList(props);
-  }
 
   return (
     <div className="dragon-list">
 
       <div>
         <div className="logo">
-          <FaDragon size="5x" />
+          <FaDragon size={96} />
         </div>
-        <ul>{list}</ul>
+        <ul>{getDragonList(props)}</ul>
         <div>
           <hr />
           <span className="actions-list">
-            <FaPlus/>
+            <FaPlus size={25}/>
             <span onClick={addNewDragonHandler}>Add New Dragon</span>
           </span>
         </div>

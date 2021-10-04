@@ -7,15 +7,15 @@ import Dragon from "./components/dragon/dragon";
 import "./App.css";
 
 const App = props => {
-  let routes = (
+  const { isLoggedIn } = props;
+
+  const getRoutes = () => {
+  return !isLoggedIn ? (
     <Switch>
       <Route path="/" exact component={Login} />
       <Redirect to="/" />
     </Switch>
-  );
-
-  if (props.isLoggedIn) {
-    routes = (
+  ) : (
       <Switch>
         <Route path="/" exact component={Login} />
         <Route path="/dragon/:id" render={props => <Dragon {...props} />} />
@@ -27,7 +27,7 @@ const App = props => {
 
   return (
     <div className="App">
-      <header className="App-header">{routes}</header>
+      <header className="App-header">{getRoutes()}</header>
     </div>
   );
 };

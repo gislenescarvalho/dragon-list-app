@@ -47,7 +47,7 @@ const reducer = (state = initialState, action) => {
       return getDragonsListFail(state, action);
     case actionTypes.GET_DRAGONS_LIST_SUCCESS:
       return getDragonsListSuccess(state, action);
-    case actionTypes.SORT_DRAGON_LIST:
+    case actionTypes.SORT_LIST_DRAGONS:
       return sortDragonList(state, action);
     default:
       return state;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from 'react-redux';
 import * as actions from "../../store/actions/";
-import Input from './input';
+import Input from '../input/input';
 import { FaEdit, FaDragon, FaArrowCircleLeft, FaSave, FaTrashAlt } from "react-icons/fa";
 import "./dragon.css";
 
@@ -55,76 +55,82 @@ const Dragon = props => {
   const editMode = () => {
     return (
       <>
-          <Input
-            type="text"
-            id="name"
-            value={dragonDetails.name}
-            onChange={changeHandler}
-          />
-          <Input
-            type="text"
-            id="type"
-            value={dragonDetails.type}
-            onChange={changeHandler}
-          />
-      </>
+      <div>
+        <input
+          type="text"
+          id="name"
+          value={dragonDetails.name}
+          onChange={changeHandler}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          id="type"
+          value={dragonDetails.type}
+          onChange={changeHandler}
+        />
+      </div>
+    </>
     );
   };
   const infoMode = () => {
     return (
-        <>
-            <h2>{dragonDetails.name}</h2>
-            <h3>{dragonDetails.type}</h3>
-        </>
+      <>
+      <div>
+        <h2>{dragonDetails.name}</h2>
+      </div>
+      <div>
+        <h3>{dragonDetails.type}</h3>
+      </div>
+    </>
     );
   };
 
   const setDisplayMode = () => {
-
-    /*switch (isEdit) {
+    switch (isEdit) {
       case true:
         return editMode();
       case false:
         return infoMode();
-    }*/
-    return isEdit ? editMode() : infoMode();
+    }
   };
 
 
   let display = (
-    <div className="dragon">
+    <div className="dragon-details">
     <div className="first-row-info">
       <span className="details-id">{dragonDetails.id}</span>
-      <span className="details-created-date">{formatDate(dragonDetails.createdAt)}</span>
+      <span>{formatDate(dragonDetails.createdAt)}</span>
     </div>
     {setDisplayMode()}
   </div>
   )
   
   return (
-    <>
+    <div>
         <div className="logo">
-        <FaDragon size="5x" />
+        <FaDragon size={92} />
       </div>
       {display}
       <div className="actions">
         <span onClick={goBackHandler}>
-          <FaArrowCircleLeft size="2x" />
+          <FaArrowCircleLeft size={32} />
         </span>
         <span onClick={editDragonHandler}>
-          <FaEdit size="2x" />
+          <FaEdit size={32} />
         </span>
         { isEdit && <span onClick={saveDragonHandler}>
-          <FaSave size="2x" />  
+          <FaSave size={32} />  
         </span>}
         {!isEdit && <span onClick={deleteDragonHandler}>
-          <FaTrashAlt size="2x" />          
+          <FaTrashAlt size={32} />          
         </span>}
       </div>
       <div>
           {props.error && <p className="error-message">{props.error}</p>} 
       </div>
-    </>
+    </div>
   );
 };
 

@@ -4,10 +4,14 @@
     justify-content: center;
 }
 
+input {
+    margin: 2px 10px !important;
+}
+
 input, button {
     padding: 10px;
     margin: 5px;
-    border: 1px solid #f542e3;
+    border: 1px solid #013A20;
     border-radius: 25px;
 }
 
@@ -18,19 +22,18 @@ input, button {
 }
 
 .login button {
-    background: #c441b7;
+    background: #013A20;
     color: #fff;
     cursor: pointer;
 }
 
 .login button:hover {
     background: #fff;
-    color: #c441b7;
+    color: #013A20;
 }
 
 .logo {
-    color: #c441b7;
-    margin-bottom: 20px; 
+    color: #013A20;
 }
 
 .sign-buttons { 

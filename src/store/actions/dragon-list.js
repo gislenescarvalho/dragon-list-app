@@ -26,9 +26,11 @@ export const sortDragonsList = (list) => {
 }
 
 export const getDragonsList = () => {
+    const { getDragons } = DragonAPI;
     return dispatch => 
-            DragonAPI.getDragons()
+          getDragons()
             .then(res => {
+                console.log('res', res);
                 dispatch(sortDragonsList(res.data))
                 dispatch(getDragonsListSuccess(res.data));
                 
